@@ -51,7 +51,7 @@ class Uploader
     function __construct($upload_root, $max_file_size = 0)
     {
         $this->upload_tree = array(date("Y"), date("m"));
-        $this->upload_dist = $upload_root . implode(DS, $this->upload_tree) . DS;
+        $this->upload_dist = $upload_root . implode(DIRECTORY_SEPARATOR, $this->upload_tree) . DIRECTORY_SEPARATOR;
         $this->max_file_size = $max_file_size;
 
         if (isset($_FILES) AND is_array($_FILES)) {
@@ -73,7 +73,7 @@ class Uploader
                         throw new \Exception("UPLOAD_MOVE_ERROR");
                     }
                 } else {
-                    throw new \Exception("UPLOAD_EXCEEDS_SIZE");
+                    throw new \Exception("UPLOAD_EXCEEDIRECTORY_SEPARATOR_SIZE");
                 }
             } else {
                 throw new \Exception("UPLOAD_TYPE_NOT_ALLOWED");
